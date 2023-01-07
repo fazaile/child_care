@@ -4,6 +4,15 @@ include '../connection.php';
 //POST = send/save data to mysql db
 //GET = retrieve/read data from mysql db
 
+if ($_SERVER['REQUEST_METHOD'] !== 'POST')
+{
+    echo json_encode([
+        'message' => 'invalid_method',
+    ]);
+
+    return;
+}
+
 $adminEmail = $_POST['admin_email'];
 $adminPassword = ($_POST['admin_password']); 
 

@@ -1,21 +1,20 @@
 <?php
 include '../connection.php';
 
-
-$sqlQuery="SELECT * FROM classroom_table ORDER BY classroom_id  DESC";
+$sqlQuery = "SELECT * FROM menu_table ORDER BY menu_id  DESC";
 
 $resultOfQuery = $connectNow->query($sqlQuery);
 
 if ($resultOfQuery) {
-    $classroomRecord = array();
+    $menuRecord = array();
     while ($rowFound = $resultOfQuery->fetch_assoc()) {
-        $classroomRecord[] = $rowFound;
+        $menuRecord[] = $rowFound;
     }
 
     echo json_encode(
         array(
             "success" => true,
-            "classroomData" => $classroomRecord,
+            "menuData" => $menuRecord,
         )
     );
 } else {

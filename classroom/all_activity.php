@@ -2,20 +2,20 @@
 include '../connection.php';
 
 
-$sqlQuery="SELECT * FROM classroom_table ORDER BY classroom_id  DESC";
+$sqlQuery="SELECT * FROM activity_table ORDER BY activity_id  DESC";
 
 $resultOfQuery = $connectNow->query($sqlQuery);
 
 if ($resultOfQuery) {
-    $classroomRecord = array();
+    $activityRecord = array();
     while ($rowFound = $resultOfQuery->fetch_assoc()) {
-        $classroomRecord[] = $rowFound;
+        $activityRecord[] = $rowFound;
     }
 
     echo json_encode(
         array(
             "success" => true,
-            "classroomData" => $classroomRecord,
+            "activityData" => $activityRecord,
         )
     );
 } else {
